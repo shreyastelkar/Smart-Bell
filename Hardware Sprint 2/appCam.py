@@ -6,10 +6,12 @@
 # 	PiCam Local Web Server with Flask
 # MJRoBot.org 19Jan18
 
-from flask import Flask, render_template, Response
-import time 
 import threading
+import time
+
 import RPi.GPIO as GPIO
+from flask import Flask, Response, render_template
+
 # Raspberry Pi camera module (requires picamera package)
 from camera_pi import Camera
 
@@ -111,10 +113,6 @@ def index():
     return render_template('index.html', **data)
 
 
-
-
-    
-    
 def gen(camera):
     """Video streaming generator function."""
     while True:
